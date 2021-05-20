@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(14, 6, 136, 0.2);
+                max-width: 500px;
+                margin: auto;
+                text-align: center;
+                font-family: arial;
+            }
+            .price {
+                color: green;
+                font-size: 20px;
+            }
+            .card:hover {
+                opacity: 0.7;
+            }
+        </style>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<!-- GET request to fetch data from endpoint -->
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function ($scope, $http) {
+            $http.get("http://bira.seniortest.co.uk/api/bira-payment/AdUnits").then(function (response) {
+            debugger;
+            $scope.myData = response.data;
+        });
+        });
+    </script>
+
+<!-- data parsed into a product card -->
+    <body>
+        <div ng-app="myApp" ng-controller="customersCtrl">
+            <div class="card" ng-repeat="u in myData">
+                <h1> {{u.Title}} </h1>
+                <span class="price"> ${{u.Price}} </span>
+                <br>
+                <p> ID: {{u.AdUnitID}} <p>
+                <p> Width: {{u.Width}} </p>
+                <p> Height: {{u.Height}} </p>
+            </div>
+        </div>
+    </body>
+</html>
