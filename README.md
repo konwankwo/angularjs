@@ -1,2 +1,2 @@
 # angularjs
-productcard project: data gotten from Bira, a UK senior healthcare company. 
+productcard project: data gotten from Bira senior test, UK. 
