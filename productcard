@@ -2,6 +2,10 @@
 <html>
     <head>
         <style>
+            #heading {
+                text-align: center;
+                font-family: arial;
+            }
             .card {
                 box-shadow: 0 4px 8px 0 rgba(14, 6, 136, 0.2);
                 max-width: 500px;
@@ -34,6 +38,7 @@
 <!-- data parsed into a product card -->
     <body>
         <div ng-app="myApp" ng-controller="customersCtrl">
+            <h1 id="heading">CARDS</h1>
             <div class="card" ng-repeat="u in myData">
                 <h1> {{u.Title}} </h1>
                 <span class="price"> ${{u.Price}} </span>
